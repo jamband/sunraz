@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= require("html-loader!../layouts/head.html").default %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div class="d-flex flex-column min-vh-100 py-7">
+      <%= require("html-loader!../layouts/header.html").default %>
+      <main class="container flex-grow-1">
+        <article>
+          <h1 class="mb-4">Not Found</h1>
+          <section>Page not found.</section>
+          <section class="my-5 text-center">
+            <a href="/">Back to Home</a>
+          </section>
+        </article>
+      </main>
+      <%= require("html-loader!../layouts/footer.html").default %>
+    </div>
+  </body>
+</html>

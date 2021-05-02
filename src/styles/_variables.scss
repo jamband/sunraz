@@ -1,0 +1,134 @@
+@use "sass:color";
+
+// Color system
+$primary:     #d8dee9;
+$dark:        #292f3a;
+
+$colors: (
+);
+
+$theme-colors: (
+  "primary":    $primary,
+  "dark":       $dark
+);
+
+// Options
+
+// Gradient
+
+// Spacing
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+  8: $spacer * 7.5,
+  9: $spacer * 9
+);
+
+// Position
+
+// Body
+$body-bg:     #2e3440;
+$body-color:  #d8dee9;
+
+// Links
+$link-color:                              $primary;
+$link-hover-color:                        $primary;
+
+// Paragraphs
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+);
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+);
+
+// Grid columns
+
+// Container padding
+
+// Components
+
+// Typography
+$font-family-sans-serif:      "Lora", serif;
+
+$font-size-base:              1rem;
+
+// Tables
+
+// Buttons + Forms
+
+// Buttons
+
+// Forms
+
+// Form validation
+
+// Z-index master list
+
+// Navs
+$nav-link-transition:               none;
+
+// Navbar
+$navbar-toggler-font-size:          $font-size-base;
+
+$navbar-toggler-padding-x:          0.5rem;
+$navbar-toggler-focus-width:        2px;
+
+$navbar-dark-color:                 $body-color;
+$navbar-dark-hover-color:           $body-color;
+$navbar-dark-toggler-border-color:  transparent;
+
+// Dropdowns
+
+// Pagination
+
+// Cards
+
+// Accordion
+
+// Tooltips
+
+// Popovers
+
+// Toasts
+
+// Badges
+
+// Modals
+
+// Alerts
+
+// Progress bars
+
+// List group
+
+// Image thumbnails
+
+// Figures
+
+// Breadcrumbs
+
+// Carousel
+
+// Spinners
+
+// Close
+
+// Offcanvas
+
+// Code

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= require("html-loader!../layouts/head.html").default %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div class="d-flex flex-column min-vh-100 py-7">
+      <%= require("html-loader!../layouts/header.html").default %>
+      <main class="container flex-grow-1">
+        <article>
+          <h1 class="mb-4">About</h1>
+          <section>
+            SunRaz is my private playground for Bootstrap 5 and webpack. This
+            website is an open source project. See
+            <a
+              href="https://github.com/jamband/sunraz"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <%= require("html-loader!../icons/github.html").default %> GitHub:
+              jamband/sunraz</a
+            >
+            for details.
+          </section>
+        </article>
+      </main>
+      <%= require("html-loader!../layouts/footer.html").default %>
+    </div>
+  </body>
+</html>
