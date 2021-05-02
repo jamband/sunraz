@@ -9,7 +9,7 @@ module.exports = merge(common, {
     assetModuleFilename: "[name][ext]",
   },
   devServer: {
-    watchFiles: ["src/pages/*"],
+    watchFiles: ["src/layouts/*", "src/pages/*"],
   },
   module: {
     rules: [
