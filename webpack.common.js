@@ -1,4 +1,5 @@
 const HtmlPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const html = ({ filename, title }) => {
   const appName = "SunRaz";
@@ -18,6 +19,19 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/dist`,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: "css-loader" },
+          { loader: "postcss-loader" },
+          { loader: "sass-loader" },
+        ],
+      },
+    ],
   },
   plugins: [
     html({ filename: "index" }),

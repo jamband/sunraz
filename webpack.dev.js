@@ -11,17 +11,5 @@ module.exports = merge(common, {
   devServer: {
     watchFiles: ["src/layouts/*", "src/pages/*"],
   },
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          { loader: "css-loader" },
-          { loader: "sass-loader" },
-        ],
-      },
-    ],
-  },
   plugins: [new MiniCssExtractPlugin()],
 });
