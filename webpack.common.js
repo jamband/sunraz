@@ -1,7 +1,16 @@
 const HtmlPlugin = require("html-webpack-plugin");
 
-const pagesPath = "./src/pages";
-const appName = "SunRaz";
+const html = ({ filename, title }) => {
+  const appName = "SunRaz";
+
+  return new HtmlPlugin({
+    template: `./src/pages/${filename}.html`,
+    filename: `${filename}.html`,
+    templateParameters: {
+      title: title ? `${title} ･ ${appName}` : appName,
+    },
+  });
+};
 
 module.exports = {
   entry: {
@@ -11,26 +20,8 @@ module.exports = {
     path: `${__dirname}/dist`,
   },
   plugins: [
-    new HtmlPlugin({
-      template: `${pagesPath}/index.html`,
-      filename: "index.html",
-      templateParameters: {
-        title: appName,
-      },
-    }),
-    new HtmlPlugin({
-      template: `${pagesPath}/about.html`,
-      filename: "about.html",
-      templateParameters: {
-        title: `About · ${appName}`,
-      },
-    }),
-    new HtmlPlugin({
-      template: `${pagesPath}/404.html`,
-      filename: "404.html",
-      templateParameters: {
-        title: `Not Found · ${appName}`,
-      },
-    }),
+    html({ filename: "index" }),
+    html({ filename: "about", title: "About" }),
+    html({ filename: "404", title: "Not Found" }),
   ],
 };
