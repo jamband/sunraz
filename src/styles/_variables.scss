@@ -68,7 +68,6 @@ $container-max-widths: (
 
 // Typography
 $font-family-sans-serif:      "Georgia", "Times New Roman", "Times", serif;
-
 $font-size-base:              1rem;
 
 // Tables
@@ -88,10 +87,8 @@ $nav-link-transition:               none;
 
 // Navbar
 $navbar-toggler-font-size:          $font-size-base;
-
 $navbar-toggler-padding-x:          0.5rem;
 $navbar-toggler-focus-width:        2px;
-
 $navbar-dark-color:                 $body-color;
 $navbar-dark-hover-color:           $body-color;
 $navbar-dark-toggler-border-color:  transparent;
