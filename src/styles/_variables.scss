@@ -3,10 +3,8 @@
 // Color system
 $primary:     #d8dee9;
 $dark:        #292f3a;
-
 $colors: (
 );
-
 $theme-colors: (
   "primary":    $primary,
   "dark":       $dark
@@ -21,7 +19,6 @@ $enable-validation-icons:     false;
 
 // Spacing
 $spacer: 1rem;
-
 $spacers: (
   0: 0,
   1: $spacer * 0.25,
