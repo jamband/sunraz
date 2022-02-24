@@ -3,11 +3,13 @@
 // Color system
 $primary:     #d8dee9;
 $dark:        #292f3a;
+$gray:        #4b515c;
 $colors: (
 );
 $theme-colors: (
   "primary":    $primary,
-  "dark":       $dark
+  "dark":       $dark,
+  "gray":       $gray
 );
 
 // Options
@@ -35,7 +37,7 @@ $spacers: (
 // Position
 
 // Body
-$body-bg:     #2e3440;
+$body-bg:     $dark;
 $body-color:  #d8dee9;
 
 // Links
@@ -64,8 +66,8 @@ $container-max-widths: (
 // Components
 
 // Typography
-$font-family-sans-serif:      "Georgia", "Times New Roman", "Times", serif;
-$font-size-base:              1rem;
+$font-family-sans-serif:      "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+$font-size-base:              1.05rem;
 
 // Tables
 
@@ -83,6 +85,7 @@ $font-size-base:              1rem;
 $nav-link-transition:               none;
 
 // Navbar
+$navbar-nav-link-padding-x:         1.25rem;
 $navbar-toggler-font-size:          $font-size-base;
 $navbar-toggler-padding-x:          0.5rem;
 $navbar-toggler-focus-width:        2px;

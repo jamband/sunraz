@@ -1,3 +1,11 @@
+.navbar {
+  border-bottom: 1px solid var(--bs-gray);
+}
+
+.fixed-bottom {
+  border-top: 1px solid var(--bs-gray);
+}
+
 .bi {
   display: inline-block;
   vertical-align: -0.125em;
