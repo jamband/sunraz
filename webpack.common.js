@@ -1,17 +1,8 @@
 const HtmlPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const html = ({ filename, title }) => {
-  const appName = "SunRaz";
-
-  return new HtmlPlugin({
-    template: `./src/pages/${filename}.html`,
-    filename: `${filename}.html`,
-    templateParameters: {
-      title: title ? `${title} ･ ${appName}` : appName,
-    },
-  });
-};
+const appName = "SunRaz";
+const pagePath = "src/pages";
 
 module.exports = {
   entry: {
@@ -34,8 +25,25 @@ module.exports = {
     ],
   },
   plugins: [
-    html({ filename: "index" }),
-    html({ filename: "about", title: "About" }),
-    html({ filename: "404", title: "Not Found" }),
+    new HtmlPlugin({
+      template: `${pagePath}/index.html`,
+      templateParameters: {
+        title: appName,
+      },
+    }),
+    new HtmlPlugin({
+      template: `${pagePath}/about/index.html`,
+      filename: "about/index.html",
+      templateParameters: {
+        title: `About ･ ${appName}`,
+      },
+    }),
+    new HtmlPlugin({
+      template: `${pagePath}/404.html`,
+      filename: "404.html",
+      templateParameters: {
+        title: `Not Found ･ ${appName}`,
+      },
+    }),
   ],
 };

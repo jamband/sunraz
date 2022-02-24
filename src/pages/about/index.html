@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%= require("html-loader!../layouts/head.html").default %>
+    <%= require("html-loader!../../layouts/head.html").default %>
+    <link rel="prefetch" href="/" />
     <title><%= title %></title>
   </head>
   <body>
     <div class="d-flex flex-column min-vh-100 py-7">
-      <%= require("html-loader!../layouts/header.html").default %>
+      <%= require("html-loader!../../layouts/header.html").default %>
       <main class="container flex-grow-1">
         <article>
           <h1 class="mb-4">About</h1>
@@ -18,14 +19,14 @@
               rel="noopener noreferrer"
               target="_blank"
             >
-              <%= require("html-loader!../icons/github.html").default %> GitHub:
-              jamband/sunraz</a
+              <%= require("html-loader!../../icons/github.html").default %>
+              GitHub: jamband/sunraz</a
             >
             for details.
           </section>
         </article>
       </main>
-      <%= require("html-loader!../layouts/footer.html").default %>
+      <%= require("html-loader!../../layouts/footer.html").default %>
     </div>
   </body>
 </html>
