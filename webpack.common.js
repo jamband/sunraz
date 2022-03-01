@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const appName = "SunRaz";
 const pagePath = "src/pages";
 
+/** @type import("webpack").Configuration */
 module.exports = {
   entry: {
     app: "./src/entries/app.js",
