@@ -6,5 +6,6 @@
     "source.fixAll": true
   },
   "editor.formatOnSave": true,
+  "liveServer.settings.root": "/dist",
   "stylelint.validate": ["css", "html", "scss"]
 }
