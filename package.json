@@ -4,8 +4,8 @@
     "dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "stylelint": "stylelint \"src/**/*.{css,html,scss}\"",
-    "clear": "rm -rf dist",
-    "clean": "rm -rf dist node_modules"
+    "clear": "node scripts/clear.mjs",
+    "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
