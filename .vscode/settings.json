@@ -1,11 +1,7 @@
 {
-  "[html][javascript][json][jsonc]": {
+  "[css][html][javascript][json][jsonc][scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
   "editor.formatOnSave": true,
-  "liveServer.settings.root": "/dist",
-  "stylelint.validate": ["css", "html", "scss"]
+  "liveServer.settings.root": "/dist"
 }
