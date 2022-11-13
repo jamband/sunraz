@@ -1,10 +1,4 @@
-import { rmSync } from "fs";
+import { rm } from "node:fs/promises";
 
-/** @type {import("fs").RmOptions} */
-const options = {
-  recursive: true,
-  force: true,
-};
-
-rmSync("dist", options);
-rmSync("node_modules", options);
+await rm("dist", { recursive: true, force: true });
+await rm("node_modules", { recursive: true, force: true });
