@@ -1,0 +1,139 @@
+@use "sass:color";
+
+// Color system
+$primary:     #e98080;
+$dark:        #24222b;
+$gray:        #4b515c;
+$light:       #eceff4;
+$colors: (
+);
+$theme-colors: (
+  "primary":    $primary,
+  "dark":       $dark,
+  "gray":       $gray,
+  "light":      $light
+);
+
+// Options
+$enable-caret:                false;
+$enable-smooth-scroll:        false;
+$enable-validation-icons:     false;
+
+// Gradient
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+  8: $spacer * 7.5,
+  9: $spacer * 9
+);
+
+// Position
+
+// Body
+$body-bg:     #13111a;
+$body-color:  #b7b4c7;
+
+// Links
+$link-color:                              $primary;
+$link-hover-color:                        $primary;
+
+// Paragraphs
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+);
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+);
+
+// Grid columns
+
+// Container padding
+
+// Components
+
+// Typography
+$font-family-sans-serif:      "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+$font-size-base:              1.05rem;
+$headings-color:              $light;
+
+// Tables
+
+// Buttons + Forms
+
+// Buttons
+
+// Forms
+
+// Form validation
+
+// Z-index master list
+
+// Navs
+$nav-link-transition:               none;
+
+// Navbar
+$navbar-nav-link-padding-x:         1.25rem;
+$navbar-toggler-font-size:          $font-size-base;
+$navbar-toggler-padding-x:          0.5rem;
+$navbar-toggler-focus-width:        2px;
+$navbar-dark-color:                 $light;
+$navbar-dark-hover-color:           $light;
+$navbar-dark-toggler-border-color:  transparent;
+$navbar-dark-brand-color:           $light;
+$navbar-dark-brand-hover-color:     $light;
+
+// Dropdowns
+
+// Pagination
+
+// Cards
+
+// Accordion
+
+// Tooltips
+
+// Popovers
+
+// Toasts
+
+// Badges
+
+// Modals
+
+// Alerts
+
+// Progress bars
+
+// List group
+
+// Image thumbnails
+
+// Figures
+
+// Breadcrumbs
+
+// Carousel
+
+// Spinners
+
+// Close
+
+// Offcanvas
+
+// Code

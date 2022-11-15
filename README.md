@@ -1,10 +1,10 @@
 # SunRaz
 
-SunRaz is my private playground for Bootstrap 5 and webpack.
+SunRaz is my private playground for Bootstrap 5 and Vite.
 
 ## Features
 
-- Using [Bootstrap 5](https://getbootstrap.com/) and [webpack 5](https://webpack.js.org/)
+- Using [Bootstrap 5](https://getbootstrap.com/) and [Vite](https://vitejs.dev/)
 - Using [PurgeCSS](https://purgecss.com/)
 - Customized Sass
 - Using [Bootstrap Icons](https://icons.getbootstrap.com/)
