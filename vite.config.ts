@@ -16,8 +16,8 @@ export default defineConfig({
         about: resolve(root, "about/index.html"),
       },
       output: {
-        chunkFileNames: `assets/app.[hash].js`,
-        assetFileNames: `assets/app.[hash][extname]`,
+        chunkFileNames: `assets/[hash].js`,
+        assetFileNames: `assets/[hash][extname]`,
       },
     },
   },
