@@ -8,7 +8,7 @@
     "clear": "node scripts/clear.mjs",
     "clean": "node scripts/clean.mjs"
   },
-  "devDependencies": {
+  "dependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "@popperjs/core": "^2.11.6",
     "@types/html-minifier-terser": "^7.0.0",
