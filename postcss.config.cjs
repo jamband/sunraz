@@ -2,7 +2,6 @@ const purgecss = require("@fullhuman/postcss-purgecss");
 
 module.exports = (context) => ({
   plugins: [
-    require("autoprefixer"),
     context.env === "production" &&
       purgecss({
         content: [
