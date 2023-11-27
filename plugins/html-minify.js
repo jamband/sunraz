@@ -1,9 +1,9 @@
 import { minify } from "html-minifier-terser";
-import type { PluginOption } from "vite";
 import { createFilter } from "vite";
 
-export default function htmlMinify(): PluginOption {
-  return {
+export default function htmlMinify() {
+  /** @type {import("vite").PluginOption} */
+  const options = {
     name: "html-minify",
     enforce: "post",
     apply: "build",
@@ -34,4 +34,6 @@ export default function htmlMinify(): PluginOption {
       }
     },
   };
+
+  return options;
 }
