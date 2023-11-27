@@ -1,6 +1,5 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
-import htmlMinify from "./plugins/html-minify";
 
 const root = resolve(__dirname, "src");
 
@@ -21,5 +20,4 @@ export default defineConfig({
       },
     },
   },
-  plugins: [htmlMinify()],
 });
