@@ -1,0 +1,109 @@
+---
+import "@/styles/app.scss";
+
+import { IconChevronRight } from "@/icons/chevron-right";
+import { Layout } from "@/layouts/layout";
+import styles from "./_styles.module.css";
+
+type Links = Array<{
+  href: string;
+  text: string;
+}>;
+
+const links: Links = [
+  { href: "/", text: "Home" },
+  { href: "/pagination/", text: "Pagination" },
+  { href: "/ratio/", text: "Ratio" },
+  { href: "/form/", text: "Form" },
+  { href: "/collapse/", text: "Collapse" },
+  { href: "/toast/", text: "Toast" },
+  { href: "/alert/", text: "Alert" },
+  { href: "/dropdown/", text: "Dropdown" },
+  { href: "/progress/", text: "Progress" },
+  { href: "/modal/", text: "Modal" },
+  { href: "/offcanvas/", text: "Offcanvas" },
+];
+
+const moreLinks: Links = [
+  { href: "/about/", text: "About" },
+  { href: "/contact/", text: "Contact" },
+  { href: "https://github.com/jamband/sunraz", text: "GitHub" },
+];
+---
+
+<Layout title="Offcanvas">
+  <h1>Offcanvas</h1>
+  <div
+    class="d-flex align-items-center justify-content-center"
+    style={{ minHeight: "50vh" }}
+  >
+    <button
+      class="d-flex align-items-center gap-1 btn btn-primary"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#example"
+      >Go to Pages<IconChevronRight
+        style={{
+          height: "1rem",
+          width: "1rem",
+          verticalAlign: "-0.125em",
+        }}
+      /></button
+    >
+  </div>
+  <div
+    id="example"
+    class="navbar-nav offcanvas offcanvas-end"
+    aria-labelledby="exampleLabel"
+    tabindex="-1"
+  >
+    <div class="offcanvas-header bg-gray-700">
+      <div id="navigation" class="ms-2 offcanvas-title h5 text-gray-100">
+        Pages
+      </div>
+      <button
+        type="button"
+        class="me-1 btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="close"></button>
+    </div>
+    <div class="px-0 offcanvas-body">
+      {
+        links.map((link) => (
+          <div data-bs-dismiss="offcanvas">
+            <a
+              href={link.href}
+              class:list={[
+                "d-flex align-items-center px-4 nav-link",
+                styles.link,
+              ]}
+            >
+              <div class="flex-grow-1">{link.text}</div>
+              <IconChevronRight style={{ height: "1rem", width: "1rem" }} />
+            </a>
+          </div>
+        ))
+      }
+      <hr />
+      {
+        moreLinks.map((link) => (
+          <div data-bs-dismiss="offcanvas">
+            <a
+              href={link.href}
+              class:list={[
+                "d-flex align-items-center px-4 nav-link",
+                styles.link,
+              ]}
+            >
+              <div class="flex-grow-1">{link.text}</div>
+              <IconChevronRight style={{ height: "1rem", width: "1rem" }} />
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import "bootstrap/js/dist/offcanvas";
+</script>

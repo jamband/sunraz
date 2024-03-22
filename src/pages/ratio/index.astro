@@ -1,0 +1,98 @@
+---
+import "@/styles/app.scss";
+
+import { Layout } from "@/layouts/layout";
+import { TextImage } from "@/components/text-image";
+---
+
+<Layout title="Ratio">
+  <h1>Ratio</h1>
+  <div class="row">
+    <div
+      class="mt-3 btn-group __buttons"
+      role="group"
+      aria-label="ratio button group"
+    >
+      <button type="button" class="btn btn-primary w-25 font-monospace"
+        >21x9</button
+      >
+      <button type="button" class="btn btn-primary w-25 font-monospace"
+        >16x9</button
+      >
+      <button type="button" class="btn btn-primary w-25 font-monospace"
+        >4x3</button
+      >
+      <button type="button" class="btn btn-primary w-25 font-monospace"
+        >1x1</button
+      >
+    </div>
+  </div>
+  <div class="d-none __ratio">
+    <TextImage
+      fontSize="5rem"
+      textColor="#b7b4c7"
+      backgroundColor="#24222b"
+      height={140}
+      class="rounded shadow-sm font-monospace"
+    />
+  </div>
+</Layout>
+
+<script>
+  const buttonsSelectors = ".__buttons";
+  const buttons = document.querySelector(buttonsSelectors);
+  if (buttons === null) {
+    throw new Error(`${buttonsSelectors} element does not exists.`);
+  }
+
+  const ratioSelectors = ".__ratio";
+  const ratio = document.querySelector(ratioSelectors);
+  if (ratio === null) {
+    throw new Error(`${ratioSelectors} element does not exists.`);
+  }
+
+  buttons.addEventListener("click", (event) => {
+    const button = event.target as HTMLElement;
+
+    const ratioSvg = ratio.children[0];
+    if (ratioSvg.nodeName !== "svg") {
+      throw new Error("Invalid nodeName.");
+    }
+
+    const ratioSvgTitle = ratioSvg.children[0];
+    if (ratioSvgTitle.nodeName !== "title") {
+      throw new Error("Invalid nodeName.");
+    }
+
+    const ratioSvgText = ratioSvg.children[2];
+    if (ratioSvgText.nodeName !== "text") {
+      throw new Error("Invalid nodeName.");
+    }
+
+    ratioSvgTitle.textContent = button.textContent;
+    ratioSvgText.textContent = button.textContent;
+
+    ratio.classList.remove(
+      "d-none",
+      "ratio-21x9",
+      "ratio-16x9",
+      "ratio-4x3",
+      "ratio-1x1",
+    );
+
+    ratio.classList.add("mt-3", "ratio");
+
+    if (button.textContent === "21x9") {
+      ratio.classList.add("ratio-21x9");
+    }
+    if (button.textContent === "16x9") {
+      ratio.classList.add("ratio-16x9");
+    }
+    if (button.textContent === "4x3") {
+      ratio.classList.add("ratio-4x3");
+    }
+    if (button.textContent === "1x1") {
+      ratio.classList.add("ratio-1x1");
+    }
+  });
+</script>

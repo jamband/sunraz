@@ -1,0 +1,90 @@
+---
+import "@/styles/app.scss";
+
+import { IconChevronDown } from "@/icons/chevron-down";
+import { Layout } from "@/layouts/layout";
+---
+
+<Layout title="Dropdown">
+  <h1>Dropdown</h1>
+  <div class="mt-5 d-flex justify-content-center gap-4">
+    <button
+      id="search"
+      class="d-flex align-items-center gap-1 btn btn-primary"
+      data-bs-toggle="dropdown"
+      data-bs-offset="-3,5"
+      aria-expanded="false"
+      >Search
+      <IconChevronDown
+        style={{
+          height: "1rem",
+          width: "1rem",
+        }}
+      />
+    </button>
+    <div class="dropdown-menu" aria-labelledby="search">
+      <button type="button" class="dropdown-item __search">A</button>
+      <button type="button" class="dropdown-item __search">B</button>
+      <button type="button" class="dropdown-item __search">C</button>
+    </div>
+    <button type="button" class="btn btn-primary __reset">Reset</button>
+  </div>
+  <div class="mt-5 d-flex justify-content-center gap-1">
+    {
+      [...Array(10)].map(() => (
+        <span class="p-2 fw-bold font-monospace __letter" />
+      ))
+    }
+  </div>
+</Layout>
+
+<script>
+  import "bootstrap/js/dist/dropdown";
+  import { generateLetters } from "./_utils";
+
+  const searchLettersSelectors = ".__search";
+  const searchLetters = document.querySelectorAll(searchLettersSelectors);
+  if (searchLetters.length === 0) {
+    throw new Error(`${searchLettersSelectors} element does not exists.`);
+  }
+
+  const resetSelectors = ".__reset";
+  const reset = document.querySelector(resetSelectors);
+  if (reset === null) {
+    throw new Error(`${resetSelectors} element does not exists.`);
+  }
+
+  const lettersSelectors = ".__letter";
+  const letters = document.querySelectorAll(lettersSelectors);
+  if (letters.length === 0) {
+    throw new Error(`${lettersSelectors} element does not exists.`);
+  }
+
+  const markedClassList = ["text-gray-700", "mark"];
+
+  const resetLetters = () => {
+    letters.forEach((letter, index) => {
+      letter.textContent = generateLetters(["A", "B", "C"])[index];
+      letter.classList.remove(...markedClassList);
+    });
+  };
+
+  resetLetters();
+
+  searchLetters.forEach((searchLetter) => {
+    searchLetter.addEventListener("click", (event) => {
+      letters.forEach((letter) => {
+        const searchLetter = event.currentTarget as HTMLElement;
+        letter.classList.remove(...markedClassList);
+
+        if (searchLetter.textContent === letter.textContent) {
+          letter.classList.add(...markedClassList);
+        }
+      });
+    });
+  });
+
+  reset.addEventListener("click", () => {
+    resetLetters();
+  });
+</script>

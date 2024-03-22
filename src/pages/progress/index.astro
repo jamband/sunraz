@@ -1,0 +1,102 @@
+---
+import "@/styles/app.scss";
+
+import { Layout } from "@/layouts/layout";
+---
+
+<Layout title="Progress">
+  <h1>Progress</h1>
+  <div
+    class="mt-3 btn-group btn-group-sm w-50"
+    role="group"
+    aria-label="progress button group"
+  >
+    <button type="button" class="btn btn-primary w-50 __toggle">Start</button>
+    <button type="button" class="btn btn-primary w-50 __clear" disabled
+      >Clear</button
+    >
+  </div>
+  <div class="mt-4 progress" style={{ height: "0.25rem" }}>
+    <div
+      class="progress-bar __bar"
+      role="progressbar"
+      aria-valuemin={0}
+      aria-valuenow={0}
+      aria-valuemax={100}
+    >
+    </div>
+  </div>
+  <div
+    class="mt-1 text-center font-monospace small __progress"
+    aria-label="progress"
+  >
+    0%
+  </div>
+</Layout>
+
+<script>
+  const toggleSelectors = ".__toggle";
+  const toggle = document.querySelector(toggleSelectors);
+  if (toggle === null) {
+    throw new Error(`${toggleSelectors} element does not exists.`);
+  }
+
+  const clearSelectors = ".__clear";
+  const clear = document.querySelector(clearSelectors);
+  if (clear === null) {
+    throw new Error(`${clearSelectors} element does not exists.`);
+  }
+
+  const barSelectors = ".__bar";
+  const bar = document.querySelector<HTMLElement>(barSelectors);
+  if (bar === null) {
+    throw new Error(`${barSelectors} element does not exists.`);
+  }
+
+  const progressSelectors = ".__progress";
+  const progress = document.querySelector(progressSelectors);
+  if (progress === null) {
+    throw new Error(`${progressSelectors} element does not exists.`);
+  }
+
+  let interval: number;
+  let barValueNow = Number(bar.getAttribute("aria-valuenow"));
+
+  toggle.addEventListener("click", (event) => {
+    const toggle = event.currentTarget as HTMLElement;
+    clear.removeAttribute("disabled");
+
+    if (["Start", "Continue"].includes(toggle.textContent || "")) {
+      toggle.textContent = "Pause";
+
+      interval = window.setInterval(() => {
+        if (barValueNow === 100) {
+          toggle.setAttribute("disabled", "");
+          toggle.textContent = "Start";
+          progress.textContent = "Completed!";
+          return;
+        }
+
+        barValueNow++;
+        bar.style.width = `${barValueNow}%`;
+        bar.setAttribute("aria-valuenow", `${barValueNow}`);
+        progress.textContent = `Loading... ${barValueNow}%`;
+      }, 100);
+    } else {
+      clearInterval(interval);
+      toggle.textContent = "Continue";
+      progress.textContent = `${barValueNow}%`;
+    }
+  });
+
+  clear.addEventListener("click", () => {
+    barValueNow = 0;
+    clearInterval(interval);
+    toggle.removeAttribute("disabled");
+    toggle.textContent = "Start";
+    clear.setAttribute("disabled", "");
+    bar.style.width = `${barValueNow}%`;
+    bar.setAttribute("aria-valuenow", `${barValueNow}`);
+    progress.textContent = `${barValueNow}%`;
+  });
+</script>

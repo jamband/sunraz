@@ -1,0 +1,39 @@
+---
+type Props = {
+  color: `#${string}`;
+  text: string;
+  class: string;
+  dataBsToggle?: "modal";
+  dataBsTarget?: `#${string}`;
+};
+
+const {
+  color,
+  text,
+  class: className,
+  dataBsToggle,
+  dataBsTarget,
+} = Astro.props;
+---
+
+<button
+  type="button"
+  class:list={["ps-1 pe-3 py-1 rounded-pill btn", className]}
+  data-bs-toggle={dataBsToggle}
+  data-bs-target={dataBsTarget}
+>
+  <svg
+    class="rounded-pill"
+    width="30"
+    height="30"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label={text}
+    preserveAspectRatio="xMidYMid slice"
+    focusable="false"
+  >
+    <title>{text}</title>
+    <rect width="100%" height="100%" fill={color}></rect>
+  </svg>
+  <span class="pt-1">{text}</span>
+</button>

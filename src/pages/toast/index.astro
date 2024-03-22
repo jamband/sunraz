@@ -1,0 +1,70 @@
+---
+import "@/styles/app.scss";
+
+import { Layout } from "@/layouts/layout";
+---
+
+<Layout title="Toast">
+  <h1>Toast</h1>
+  <button type="button" class="mt-3 btn btn-primary __button"
+    >Show Current Time</button
+  >
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div
+      class="toast __toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="d-flex">
+        <div class="ms-2 toast-body font-monospace __content"></div>
+        <button class="me-3 m-auto btn-close" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const buttonSelectors = ".__button";
+  const button = document.querySelector(buttonSelectors);
+  if (button === null) {
+    throw new Error(`${buttonSelectors} element does not exists.`);
+  }
+
+  const toastSelectors = ".__toast";
+  const toast = document.querySelector(toastSelectors);
+  if (toast === null) {
+    throw new Error(`${toastSelectors} element does not exists.`);
+  }
+
+  const contentSelectors = ".__content";
+  const content = document.querySelector(contentSelectors);
+  if (content === null) {
+    throw new Error(`${contentSelectors} element does not exists.`);
+  }
+
+  button.addEventListener("click", async (event) => {
+    import("bootstrap/js/dist/toast").then((module) => {
+      new module.default(toast).show();
+    });
+
+    const date = new Date();
+    const button = event.currentTarget as HTMLElement;
+
+    content.textContent = `${date.toLocaleDateString("en", {
+      weekday: "short",
+    })} ${date.toLocaleTimeString("en", {
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
+    })}`;
+
+    toast.addEventListener("shown.bs.toast", () => {
+      button.setAttribute("disabled", "");
+    });
+
+    toast.addEventListener("hidden.bs.toast", () => {
+      button.removeAttribute("disabled");
+    });
+  });
+</script>

@@ -1,0 +1,63 @@
+---
+import "@/styles/app.scss";
+
+import { APP_DESCRIPTION } from "@/constants/app";
+import { IconInfoCircleFill } from "@/icons/info-circle-fill";
+import { Layout } from "@/layouts/layout";
+---
+
+<Layout title="Collapse">
+  <h1>Collapse</h1>
+  <div class="mt-3">
+    <button
+      type="button"
+      class="w-25 btn btn-primary __toggle"
+      data-bs-toggle="collapse"
+      data-bs-target="#example"
+      aria-expanded="false"
+      aria-controls="example">Show</button
+    >
+  </div>
+  <div id="example" class="mt-3 collapse __alert">
+    <div class="alert bg-gray-700">
+      <IconInfoCircleFill
+        style={{
+          height: "1rem",
+          marginRight: "0.25rem",
+          width: "1rem",
+          verticalAlign: "-0.1em",
+        }}
+      />{APP_DESCRIPTION}
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import "bootstrap/js/dist/collapse";
+
+  const toggleSelectors = ".__toggle";
+  const toggle = document.querySelector(toggleSelectors);
+  if (toggle === null) {
+    throw new Error(`${toggleSelectors} element does not exists.`);
+  }
+
+  const alertSelectors = ".__alert";
+  const alert = document.querySelector(alertSelectors);
+  if (alert === null) {
+    throw new Error(`${alertSelectors} element does not exists.`);
+  }
+
+  toggle.addEventListener("click", (event) => {
+    const toggle = event.currentTarget as HTMLElement;
+    toggle.setAttribute("disabled", "");
+    toggle.textContent = toggle.textContent === "Show" ? "Hide" : "Show";
+
+    alert.addEventListener("shown.bs.collapse", () => {
+      toggle.removeAttribute("disabled");
+    });
+
+    alert.addEventListener("hidden.bs.collapse", () => {
+      toggle.removeAttribute("disabled");
+    });
+  });
+</script>

@@ -1,0 +1,19 @@
+---
+import type { JSX } from "astro/jsx-runtime";
+
+type Props = {
+  viewBox: string;
+  style: JSX.CSSProperties;
+};
+
+const { viewBox, style } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="currentcolor"
+  role="img"
+  aria-hidden={true}
+  viewBox={viewBox}
+  style={style}><slot /></svg
+>

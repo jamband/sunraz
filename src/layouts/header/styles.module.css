@@ -1,0 +1,15 @@
+.link {
+  background: transparent;
+  transition: background 0.15s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background: var(--bs-gray-600);
+  }
+}
+
+.link:active,
+.link:focus-visible {
+  background: var(--bs-gray-600);
+}

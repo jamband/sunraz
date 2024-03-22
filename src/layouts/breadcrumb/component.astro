@@ -1,0 +1,39 @@
+---
+type Props = {
+  title?: string;
+};
+
+const { title } = Astro.props;
+const { pathname } = Astro.url;
+
+const _items = () => {
+  const links = [{ path: "/", text: "Home" }];
+  if (!title) return links;
+
+  links.push({ path: pathname, text: title });
+  return links;
+};
+
+const _isCurrent = (path: string) => {
+  return pathname === path;
+};
+---
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {
+      _items().map((item) => (
+        <li
+          class:list={["breadcrumb-item", _isCurrent(item.path) && "active"]}
+          aria-current={_isCurrent(item.path) && "page"}
+        >
+          {_isCurrent(item.path) ? (
+            <>{item.text}</>
+          ) : (
+            <a href={item.path}>{item.text}</a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

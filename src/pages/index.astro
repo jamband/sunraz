@@ -1,0 +1,40 @@
+---
+import "@/styles/app.scss";
+
+import { IconChevronRight } from "@/icons/chevron-right";
+import { Layout } from "@/layouts/layout";
+
+const _links = [
+  { href: "/pagination/", text: "Pagination" },
+  { href: "/ratio/", text: "Ratio" },
+  { href: "/form/", text: "Form" },
+  { href: "/collapse/", text: "Collapse" },
+  { href: "/toast/", text: "Toast" },
+  { href: "/alert/", text: "Alert" },
+  { href: "/dropdown/", text: "Dropdown" },
+  { href: "/progress/", text: "Progress" },
+  { href: "/modal/", text: "Modal" },
+  { href: "/offcanvas/", text: "Offcanvas" },
+];
+---
+
+<Layout>
+  <ul class="d-flex flex-column gap-3 h2 list-unstyled">
+    {
+      _links.map((link) => (
+        <li>
+          <a href={link.href} class="text-decoration-none">
+            {link.text}
+            <IconChevronRight
+              style={{
+                height: "1rem",
+                width: "1rem",
+                verticalAlign: "0em",
+              }}
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

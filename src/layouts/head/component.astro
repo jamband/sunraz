@@ -1,0 +1,21 @@
+---
+import { APP_DESCRIPTION, APP_NAME } from "@/constants/app";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+
+const _title = title ? `${title} ･ ${APP_NAME}` : APP_NAME;
+const _description = description ?? APP_DESCRIPTION;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content={_description} />
+  <link rel="icon" href="/favicon.ico" />
+  <title>{_title}</title>
+</head>

@@ -1,0 +1,30 @@
+---
+import styles from "./styles.module.css";
+---
+
+<footer class="fixed-bottom py-3 text-center bg-gray-700">
+  <nav aria-label="footer navigation">
+    <ul class="m-0 d-flex justify-content-center gap-3 list-inline">
+      <li class="list-inline-item">
+        <a
+          class:list={["px-3 py-2 text-decoration-none rounded", styles.link]}
+          href="/about/">About</a
+        >
+      </li>
+      <li class="list-inline-item">
+        <a
+          class:list={["px-3 py-2 text-decoration-none rounded", styles.link]}
+          href="/contact/">Contact</a
+        >
+      </li>
+      <li class="list-inline-item">
+        <a
+          href="https://github.com/jamband/blissable"
+          class:list={["px-3 py-2 text-decoration-none rounded", styles.link]}
+          target="_blank"
+          rel="noreferrer">GitHub</a
+        >
+      </li>
+    </ul>
+  </nav>
+</footer>

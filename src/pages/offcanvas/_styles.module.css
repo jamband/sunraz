@@ -1,0 +1,20 @@
+.link {
+  color: var(--bs-gray-300);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background: var(--bs-gray-600);
+    color: var(--bs-gray-100);
+  }
+}
+
+.link:focus-visible {
+  background: var(--bs-gray-600);
+  color: var(--bs-gray-100);
+}
+
+.link:active {
+  background: var(--bs-primary);
+  color: var(--bs-gray-800);
+}

@@ -1,0 +1,96 @@
+---
+import "@/styles/app.scss";
+
+import { Layout } from "@/layouts/layout";
+---
+
+<Layout title="Form">
+  <h1>Form</h1>
+  <div class="mt-5 display-5 text-center font-monospace text-gray-100 __code">
+    &nbsp;
+  </div>
+  <fieldset class="mt-5 col-md-6 offset-md-3">
+    <label for="code" class="form-label">Code</label>
+    <input id="code" class="form-control __input" type="text" />
+    <div class="mt-1 __feedback">Please enter above the code.</div>
+    <div class="mt-4">
+      <button type="button" class="btn btn-primary __submit">Submit</button>
+      <span class="px-2">or</span>
+      <button type="button" class="btn btn-outline-primary __refresh">
+        Refresh the code
+      </button>
+    </div>
+  </fieldset>
+</Layout>
+
+<script>
+  import { generateCode } from "./_utils";
+
+  const codeSelectors = ".__code";
+  const code = document.querySelector(codeSelectors);
+  if (code === null) {
+    throw new Error(`${codeSelectors} element does not exists.`);
+  }
+
+  const inputSelectors = ".__input";
+  const input = document.querySelector<HTMLInputElement>(inputSelectors);
+  if (input === null) {
+    throw new Error(`${inputSelectors} element does not exists.`);
+  }
+
+  const feedbackSelectors = ".__feedback";
+  const feedback = document.querySelector(feedbackSelectors);
+  if (feedback === null) {
+    throw new Error(`${feedbackSelectors} element does not exists.`);
+  }
+
+  const submitSelectors = ".__submit";
+  const submit = document.querySelector(submitSelectors);
+  if (submit === null) {
+    throw new Error(`${submitSelectors} element does not exists.`);
+  }
+
+  const refreshSelectors = ".__refresh";
+  const refresh = document.querySelector(refreshSelectors);
+  if (refresh === null) {
+    throw new Error(`${refreshSelectors} element does not exists.`);
+  }
+
+  const refreshCode = () => {
+    code.textContent = generateCode(6);
+    input.value = "";
+    feedback.textContent = "Please enter above the code.";
+  };
+
+  const refreshStyles = () => {
+    input.classList.remove("is-invalid", "is-valid");
+    feedback.classList.remove("invalid-feedback", "valid-feedback");
+  };
+
+  refreshCode();
+
+  submit.addEventListener("click", () => {
+    refreshStyles();
+
+    if (input.value === "") {
+      feedback.textContent = "Please enter the code.";
+    } else if (input.value !== code.textContent) {
+      feedback.textContent = "Incorrent code.";
+    } else {
+      feedback.textContent = "Looks Good!";
+    }
+
+    if (feedback.textContent === "Looks Good!") {
+      input.classList.add("is-valid");
+      feedback.classList.add("valid-feedback");
+    } else {
+      input.classList.add("is-invalid");
+      feedback.classList.add("invalid-feedback");
+    }
+  });
+
+  refresh.addEventListener("click", () => {
+    refreshCode();
+    refreshStyles();
+  });
+</script>

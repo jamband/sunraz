@@ -1,0 +1,37 @@
+---
+type Props = {
+  fontSize: `${string}rem`;
+  textColor: `#${string}`;
+  backgroundColor: `#${string}`;
+  height: number;
+  class: string;
+};
+
+const {
+  fontSize,
+  textColor,
+  backgroundColor,
+  height,
+  class: className,
+} = Astro.props;
+---
+
+<svg
+  class={className}
+  width="100%"
+  height={height}
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="text image"
+  preserveAspectRatio="xMidYMid slice"
+  focusable="false"
+  style={{
+    fontSize: fontSize,
+    textAnchor: "middle",
+    userSelect: "none",
+  }}
+>
+  <title></title>
+  <rect width="100%" height="100%" fill={backgroundColor}></rect>
+  <text x="50%" y="50%" fill={textColor} dy="0.3em"></text>
+</svg>

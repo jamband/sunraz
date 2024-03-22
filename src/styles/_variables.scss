@@ -1,0 +1,181 @@
+// Color system
+$primary: #f7d68e;
+$success: #4b9c69;
+$danger: #ed7c7c;
+$gray-100: #eceff4;
+$gray-300: #b7b4c7;
+$gray-500: #848194;
+$gray-600: #3c3947;
+$gray-700: #24222b;
+$gray-800: #13111a;
+$gray-900: #020203;
+
+$colors: ();
+
+$theme-colors: (
+  "primary": $primary,
+  "success": $success,
+  "danger": $danger,
+  "gray-100": $gray-100,
+  "gray-300": $gray-300,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+);
+
+// Options
+$enable-caret: false;
+$enable-shadows: true;
+$enable-smooth-scroll: false;
+
+// Gradient
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  // 6: $spacer * 4.5,
+  // 7: $spacer * 6,
+  8: $spacer * 7.5,
+);
+
+// Position
+
+// Body
+$body-bg: $gray-800;
+$body-color: $gray-300;
+
+// Links
+$link-color: $primary;
+$link-hover-color: $primary;
+
+// Icon links
+
+// Paragraphs
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+);
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+);
+
+// Grid columns
+
+// Container padding
+$container-padding-x: 1.5rem;
+
+// Components
+$border-radius: 0.25rem;
+$border-radius-sm: 0.2rem;
+$box-shadow-sm: 0 0.125rem 0.25rem $gray-900;
+$component-active-bg: $gray-100;
+
+// Typography
+$font-size-base: 1rem;
+$headings-color: $gray-100;
+$text-muted: $gray-500;
+$mark-bg: $primary;
+
+// Tables
+
+// Buttons + Forms
+
+// Buttons
+
+// Forms
+$form-text-font-size: $font-size-base;
+$input-bg: $gray-900;
+$input-color: $body-color;
+$input-border-color: $gray-600;
+$input-disabled-bg: $gray-600;
+
+// Form validation
+
+// Z-index
+
+// Navs
+
+// Navbar
+
+// Dropdowns
+$dropdown-bg: $gray-700;
+$dropdown-border-color: $gray-600;
+$dropdown-box-shadow: $box-shadow-sm;
+
+$dropdown-link-color: $body-color;
+$dropdown-link-hover-color: $gray-100;
+$dropdown-link-hover-bg: $gray-600;
+$dropdown-link-active-color: $gray-700;
+$dropdown-link-active-bg: $primary;
+
+// Pagination
+$pagination-color: $gray-100;
+$pagination-focus-color: $gray-100;
+$pagination-focus-bg: $gray-700;
+$pagination-border-width: 0;
+$pagination-hover-color: $gray-100;
+$pagination-hover-bg: $gray-700;
+$pagination-disabled-color: $gray-500;
+$pagination-disabled-bg: transparent;
+
+// Placeholders
+
+// Cards
+
+// Accordion
+
+// Tooltips
+
+// Popovers
+
+// Toasts
+$toast-font-size: 1rem;
+$toast-color: $body-color;
+$toast-background-color: $gray-700;
+$toast-border-width: 1px;
+$toast-border-color: $gray-600;
+$toast-box-shadow: $box-shadow-sm;
+
+// Badges
+
+// Modals
+
+// Alerts
+
+// Progress bars
+$progress-bg: $gray-600;
+
+// List group
+
+// Image thumbnails
+
+// Figures
+
+// Breadcrumbs
+$breadcrumb-divider-color: $gray-300;
+$breadcrumb-active-color: $gray-300;
+
+// Carousel
+
+// Spinners
+
+// Close
+$btn-close-color: $body-color;
+
+// Offcanvas
+
+// Code

@@ -1,0 +1,133 @@
+---
+import "@/styles/app.scss";
+
+import { IconChevronLeft } from "@/icons/chevron-left";
+import { IconChevronRight } from "@/icons/chevron-right";
+import { Layout } from "@/layouts/layout";
+import { Block } from "./_components/block";
+---
+
+<Layout title="Pagination">
+  <h1>Pagination</h1>
+  <div class="mt-5 text-center" aria-label="pagination information">
+    {
+      [...Array(10)].map(() => (
+        <Block size={20} color="#35333c" class="me-1 __block" />
+      ))
+    }
+  </div>
+  <nav class="mt-5" aria-label="page navigation">
+    <ul class="pagination text-center">
+      <li class="page-item w-25 __page-item">
+        <a class="page-link"
+          ><IconChevronLeft
+            style={{
+              height: "1rem",
+              width: "1rem",
+              verticalAlign: "-0.125em",
+            }}
+          /><div>First</div></a
+        >
+      </li>
+      <li class="page-item w-25 __page-item">
+        <a class="page-link"
+          ><IconChevronLeft
+            style={{
+              height: "1rem",
+              width: "1rem",
+              verticalAlign: "-0.125em",
+            }}
+          /><div>Previous</div></a
+        >
+        <li class="page-item w-25 __page-item">
+          <a class="page-link"
+            ><IconChevronRight
+              style={{
+                height: "1rem",
+                width: "1rem",
+                verticalAlign: "-0.125em",
+              }}
+            /><div>Next</div></a
+          >
+        </li>
+        <li class="page-item w-25 __page-item">
+          <a class="page-link"
+            ><IconChevronRight
+              style={{
+                height: "1rem",
+                width: "1rem",
+                verticalAlign: "-0.125em",
+              }}
+            /><div>Last</div></a
+          >
+        </li>
+      </li>
+    </ul>
+  </nav>
+</Layout>
+
+<script>
+  // blocks
+  const searchParams = new URLSearchParams(window.location.search);
+
+  const blocksSelectors = ".__block";
+  const blocks = document.querySelectorAll(blocksSelectors);
+  if (blocks.length === 0) {
+    throw new Error(`${blocksSelectors} element does not exists.`);
+  }
+
+  const blocksIndex = Number(searchParams.get("page") || "1") - 1;
+  if (blocks[blocksIndex] === undefined) {
+    throw new Error("Invalid page parameter.");
+  }
+
+  const block = blocks[blocksIndex].children[0];
+  if (block.nodeName !== "rect") {
+    throw new Error("Invalid nodeName.");
+  }
+  block.setAttribute("fill", "#f7d68e");
+
+  // pagination
+  const pageItemSelectors = ".__page-item";
+  const pageItem = document.querySelectorAll(pageItemSelectors);
+  if (pageItem.length === 0) {
+    throw new Error(`${pageItemSelectors} element does not exists.`);
+  }
+
+  const [firstItem, previousItem, nextItem, lastItem] = pageItem;
+  const lastPage = 10;
+  const currentPage = Number(searchParams.get("page") || "1");
+
+  const link = (element: Element) => {
+    const anchor = element.children[0];
+    if (anchor.nodeName !== "A") {
+      throw new Error("Invalid nodeName.");
+    }
+    return anchor as HTMLAnchorElement;
+  };
+
+  const setDisabled = (element: Element) => {
+    element.classList.add("disabled");
+    link(element).setAttribute("aria-disabled", "true");
+  };
+
+  const setHref = (element: Element, queryString: string) => {
+    link(element).href = `/pagination/${queryString}`;
+  };
+
+  if (currentPage < 2) {
+    setDisabled(firstItem);
+    setDisabled(previousItem);
+  } else {
+    setHref(firstItem, "");
+    setHref(previousItem, `?page=${currentPage - 1}`);
+  }
+
+  if (currentPage >= lastPage) {
+    setDisabled(nextItem);
+    setDisabled(lastItem);
+  } else {
+    setHref(nextItem, `?page=${currentPage + 1}`);
+    setHref(lastItem, `?page=${lastPage}`);
+  }
+</script>

@@ -2,20 +2,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --open",
-    "build": "vite build",
-    "preview": "vite preview --open",
+    "dev": "astro dev --open",
+    "build": "astro build",
+    "preview": "astro preview --open",
+    "typecheck": "astro check && tsc",
     "format": "prettier --check .",
     "clear": "node scripts/clear.mjs",
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
+    "@astrojs/check": "0.5.9",
     "@fullhuman/postcss-purgecss": "5.0.0",
     "@popperjs/core": "2.11.8",
+    "@types/bootstrap": "5.2.10",
+    "astro": "4.5.8",
     "bootstrap": "5.3.3",
-    "postcss": "8.4.35",
+    "postcss": "8.4.38",
     "prettier": "3.2.5",
-    "sass": "1.71.1",
-    "vite": "5.1.6"
+    "sass": "1.72.0"
   }
 }

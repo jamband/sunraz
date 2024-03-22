@@ -1,0 +1,107 @@
+---
+import "@/styles/app.scss";
+
+import { TextImage } from "@/components/text-image";
+import { Layout } from "@/layouts/layout";
+import { ColorBadge } from "./_components/color-badge";
+---
+
+<Layout title="Modal">
+  <h1>Modal</h1>
+  <div class="mt-4 d-flex gap-2">
+    <ColorBadge
+      color="#ed7c7c"
+      text="red"
+      class="font-monospace btn-gray-700 __badge"
+      dataBsToggle="modal"
+      dataBsTarget="#example"
+    />
+    <ColorBadge
+      color="#4b9c69"
+      text="green"
+      class="font-monospace btn-gray-700 __badge"
+      dataBsToggle="modal"
+      dataBsTarget="#example"
+    />
+    <ColorBadge
+      color="#74a7e6"
+      text="blue"
+      class="font-monospace btn-gray-700 __badge"
+      dataBsToggle="modal"
+      dataBsTarget="#example"
+    />
+  </div>
+  <div
+    id="example"
+    class="modal fade"
+    tabindex="-1"
+    aria-labelledby="exampleLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <TextImage
+        height={300}
+        fontSize="3rem"
+        textColor="#24222b"
+        backgroundColor="#24222b"
+        class="font-monospace rounded __image"
+      />
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import "bootstrap/js/dist/modal";
+
+  const badgesSelectors = ".__badge";
+  const badges = document.querySelectorAll(badgesSelectors);
+  if (badges.length === 0) {
+    throw new Error(`${badgesSelectors} element does not exists.`);
+  }
+
+  const imageSelectors = ".__image";
+  const image = document.querySelector(imageSelectors);
+  if (image === null) {
+    throw new Error(`${imageSelectors} element does not exists.`);
+  }
+
+  badges.forEach((badge) => {
+    badge.addEventListener("click", (event) => {
+      const badge = event.currentTarget as HTMLElement;
+
+      const badgeSvg = badge.children[0];
+      if (badgeSvg.nodeName !== "svg") {
+        throw new Error("Invalid nodeName.");
+      }
+
+      const badgeSvgRect = badgeSvg.children[1];
+      if (badgeSvgRect.nodeName !== "rect") {
+        throw new Error("Invalid nodeName.");
+      }
+
+      const badgeText = badge.children[1];
+      if (badgeText.nodeName !== "SPAN") {
+        throw new Error("Invalid nodeName.");
+      }
+
+      const imageTitle = image.children[0];
+      if (imageTitle.nodeName !== "title") {
+        throw new Error("Invalid nodeName.");
+      }
+
+      const imageRect = image.children[1];
+      if (imageRect.nodeName !== "rect") {
+        throw new Error("Invalid nodeName.");
+      }
+
+      const imageText = image.children[2];
+      if (imageText.nodeName !== "text") {
+        throw new Error("Invalid nodeName.");
+      }
+
+      imageTitle.textContent = badgeText.textContent;
+      imageRect.setAttribute("fill", badgeSvgRect.getAttribute("fill")!);
+      imageText.textContent = badgeText.textContent;
+    });
+  });
+</script>

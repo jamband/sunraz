@@ -1,0 +1,25 @@
+---
+import { Breadcrumb } from "../breadcrumb";
+import { Footer } from "../footer";
+import { Head } from "../head";
+import { Header } from "../header";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <Head title={title} description={description} />
+  <body class="py-8">
+    <Header />
+    <main class="container">
+      <Breadcrumb title={title} />
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

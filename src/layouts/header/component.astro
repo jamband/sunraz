@@ -1,0 +1,18 @@
+---
+import { APP_NAME } from "@/constants/app";
+import styles from "./styles.module.css";
+---
+
+<header class="fixed-top py-3 text-center bg-gray-700 fw-bold">
+  <a
+    class:list={[
+      "px-3 py-2 text-decoration-none text-gray-100 rounded",
+      styles.link,
+    ]}
+    href="/">{APP_NAME}</a
+  >
+</header>
+
+<style>
+  @import "./styles.module.css";
+</style>
