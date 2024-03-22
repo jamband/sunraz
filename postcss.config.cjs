@@ -13,9 +13,9 @@ module.exports = (context) => ({
           "./node_modules/bootstrap/js/dist/toast.js",
           "./src/**/*.astro",
         ],
-        safelist:[
+        safelist: [
           /^_/, // for css modules
-        ]
+        ],
       }),
   ],
 });
