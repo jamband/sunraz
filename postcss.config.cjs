@@ -11,6 +11,7 @@ module.exports = (context) => ({
           "./node_modules/bootstrap/js/dist/modal.js",
           "./node_modules/bootstrap/js/dist/offcanvas.js",
           "./node_modules/bootstrap/js/dist/toast.js",
+          "./node_modules/bootstrap/js/dist/util/backdrop.js",
           "./src/**/*.astro",
         ],
         safelist: [
