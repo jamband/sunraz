@@ -20,14 +20,12 @@ import { Layout } from "@/layouts/layout";
   </div>
   <div id="example" class="mt-3 collapse __alert">
     <div class="alert bg-gray-700">
-      <IconInfoCircleFill
-        style={{
-          height: "1rem",
-          marginRight: "0.25rem",
-          width: "1rem",
-          verticalAlign: "-0.1em",
-        }}
-      />{APP_DESCRIPTION}
+      <div class="d-flex align-items-center gap-2">
+        <IconInfoCircleFill
+          style={{ flexShrink: "0", height: "1rem", width: "1rem" }}
+        />
+        {APP_DESCRIPTION}
+      </div>
     </div>
   </div>
 </Layout>
