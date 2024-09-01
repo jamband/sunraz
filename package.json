@@ -11,13 +11,13 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@astrojs/check": "0.8.2",
+    "@astrojs/check": "0.9.3",
     "@fullhuman/postcss-purgecss": "6.0.0",
     "@popperjs/core": "2.11.8",
     "@types/bootstrap": "5.2.10",
-    "astro": "4.12.2",
+    "astro": "4.15.1",
     "bootstrap": "5.3.3",
-    "postcss": "8.4.39",
+    "postcss": "8.4.42",
     "prettier": "3.3.3",
     "prettier-plugin-astro": "0.14.1",
     "sass": "1.77.8"
