@@ -1,9 +1,9 @@
-const purgecss = require("@fullhuman/postcss-purgecss");
+const { purgeCSSPlugin } = require("@fullhuman/postcss-purgecss");
 
 module.exports = (context) => ({
   plugins: [
     context.env === "production" &&
-      purgecss({
+      purgeCSSPlugin({
         content: [
           "./node_modules/bootstrap/js/dist/alert.js",
           "./node_modules/bootstrap/js/dist/collapse.js",

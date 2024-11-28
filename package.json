@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@fullhuman/postcss-purgecss": "6.0.0",
+    "@fullhuman/postcss-purgecss": "7.0.2",
     "@popperjs/core": "2.11.8",
     "@types/bootstrap": "5.2.10",
-    "astro": "4.16.13",
+    "astro": "4.16.16",
     "bootstrap": "5.3.3",
     "postcss": "8.4.49",
-    "prettier": "3.3.3",
+    "prettier": "3.4.1",
     "prettier-plugin-astro": "0.14.1",
     "sass": "1.81.0"
   }
