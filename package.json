@@ -15,11 +15,11 @@
     "@fullhuman/postcss-purgecss": "7.0.2",
     "@popperjs/core": "2.11.8",
     "@types/bootstrap": "5.2.10",
-    "astro": "5.1.5",
+    "astro": "5.1.8",
     "bootstrap": "5.3.3",
-    "postcss": "8.4.49",
+    "postcss": "8.5.1",
     "prettier": "3.4.2",
     "prettier-plugin-astro": "0.14.1",
-    "sass": "1.83.1"
+    "sass": "1.83.4"
   }
 }
