@@ -5,7 +5,7 @@
     background 0.15s;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .link:hover {
     background: var(--bs-gray-600);
     color: var(--bs-gray-100);
