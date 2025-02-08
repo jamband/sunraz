@@ -3,7 +3,6 @@ import "@/styles/app.scss";
 
 import { IconChevronRight } from "@/icons/chevron-right";
 import { Layout } from "@/layouts/layout";
-import styles from "./_styles.module.css";
 
 type Links = Array<{
   href: string;
@@ -70,13 +69,7 @@ const moreLinks: Links = [
       {
         links.map((link) => (
           <div data-bs-dismiss="offcanvas">
-            <a
-              href={link.href}
-              class:list={[
-                "d-flex align-items-center px-4 nav-link",
-                styles.link,
-              ]}
-            >
+            <a href={link.href} class="d-flex align-items-center px-4 nav-link">
               <div class="flex-grow-1">{link.text}</div>
               <IconChevronRight style={{ height: "1rem", width: "1rem" }} />
             </a>
@@ -87,13 +80,7 @@ const moreLinks: Links = [
       {
         moreLinks.map((link) => (
           <div data-bs-dismiss="offcanvas">
-            <a
-              href={link.href}
-              class:list={[
-                "d-flex align-items-center px-4 nav-link",
-                styles.link,
-              ]}
-            >
+            <a href={link.href} class="d-flex align-items-center px-4 nav-link">
               <div class="flex-grow-1">{link.text}</div>
               <IconChevronRight style={{ height: "1rem", width: "1rem" }} />
             </a>

@@ -14,9 +14,6 @@ module.exports = (context) => ({
           "./node_modules/bootstrap/js/dist/util/backdrop.js",
           "./src/**/*.astro",
         ],
-        safelist: [
-          /^_/, // for css modules
-        ],
       }),
   ],
 });
