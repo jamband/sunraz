@@ -32,71 +32,70 @@ import { Layout } from "@/layouts/layout";
   >
     0%
   </div>
-</Layout>
-
-<script>
-  const toggleSelectors = ".__toggle";
-  const toggle = document.querySelector(toggleSelectors);
-  if (toggle === null) {
-    throw new Error(`${toggleSelectors} element does not exists.`);
-  }
-
-  const clearSelectors = ".__clear";
-  const clear = document.querySelector(clearSelectors);
-  if (clear === null) {
-    throw new Error(`${clearSelectors} element does not exists.`);
-  }
-
-  const barSelectors = ".__bar";
-  const bar = document.querySelector<HTMLElement>(barSelectors);
-  if (bar === null) {
-    throw new Error(`${barSelectors} element does not exists.`);
-  }
-
-  const progressSelectors = ".__progress";
-  const progress = document.querySelector(progressSelectors);
-  if (progress === null) {
-    throw new Error(`${progressSelectors} element does not exists.`);
-  }
-
-  let interval: number;
-  let barValueNow = Number(bar.getAttribute("aria-valuenow"));
-
-  toggle.addEventListener("click", (event) => {
-    const toggle = event.currentTarget as HTMLElement;
-    clear.removeAttribute("disabled");
-
-    if (["Start", "Continue"].includes(toggle.textContent || "")) {
-      toggle.textContent = "Pause";
-
-      interval = window.setInterval(() => {
-        if (barValueNow === 100) {
-          toggle.setAttribute("disabled", "");
-          toggle.textContent = "Start";
-          progress.textContent = "Completed!";
-          return;
-        }
-
-        barValueNow++;
-        bar.style.width = `${barValueNow}%`;
-        bar.setAttribute("aria-valuenow", `${barValueNow}`);
-        progress.textContent = `Loading... ${barValueNow}%`;
-      }, 100);
-    } else {
-      clearInterval(interval);
-      toggle.textContent = "Continue";
-      progress.textContent = `${barValueNow}%`;
+  <script>
+    const toggleSelectors = ".__toggle";
+    const toggle = document.querySelector(toggleSelectors);
+    if (toggle === null) {
+      throw new Error(`${toggleSelectors} element does not exists.`);
     }
-  });
 
-  clear.addEventListener("click", () => {
-    barValueNow = 0;
-    clearInterval(interval);
-    toggle.removeAttribute("disabled");
-    toggle.textContent = "Start";
-    clear.setAttribute("disabled", "");
-    bar.style.width = `${barValueNow}%`;
-    bar.setAttribute("aria-valuenow", `${barValueNow}`);
-    progress.textContent = `${barValueNow}%`;
-  });
-</script>
+    const clearSelectors = ".__clear";
+    const clear = document.querySelector(clearSelectors);
+    if (clear === null) {
+      throw new Error(`${clearSelectors} element does not exists.`);
+    }
+
+    const barSelectors = ".__bar";
+    const bar = document.querySelector<HTMLElement>(barSelectors);
+    if (bar === null) {
+      throw new Error(`${barSelectors} element does not exists.`);
+    }
+
+    const progressSelectors = ".__progress";
+    const progress = document.querySelector(progressSelectors);
+    if (progress === null) {
+      throw new Error(`${progressSelectors} element does not exists.`);
+    }
+
+    let interval: number;
+    let barValueNow = Number(bar.getAttribute("aria-valuenow"));
+
+    toggle.addEventListener("click", (event) => {
+      const toggle = event.currentTarget as HTMLElement;
+      clear.removeAttribute("disabled");
+
+      if (["Start", "Continue"].includes(toggle.textContent || "")) {
+        toggle.textContent = "Pause";
+
+        interval = window.setInterval(() => {
+          if (barValueNow === 100) {
+            toggle.setAttribute("disabled", "");
+            toggle.textContent = "Start";
+            progress.textContent = "Completed!";
+            return;
+          }
+
+          barValueNow++;
+          bar.style.width = `${barValueNow}%`;
+          bar.setAttribute("aria-valuenow", `${barValueNow}`);
+          progress.textContent = `Loading... ${barValueNow}%`;
+        }, 100);
+      } else {
+        clearInterval(interval);
+        toggle.textContent = "Continue";
+        progress.textContent = `${barValueNow}%`;
+      }
+    });
+
+    clear.addEventListener("click", () => {
+      barValueNow = 0;
+      clearInterval(interval);
+      toggle.removeAttribute("disabled");
+      toggle.textContent = "Start";
+      clear.setAttribute("disabled", "");
+      bar.style.width = `${barValueNow}%`;
+      bar.setAttribute("aria-valuenow", `${barValueNow}`);
+      progress.textContent = `${barValueNow}%`;
+    });
+  </script>
+</Layout>

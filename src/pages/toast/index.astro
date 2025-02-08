@@ -22,49 +22,48 @@ import { Layout } from "@/layouts/layout";
       </div>
     </div>
   </div>
+  <script>
+    const buttonSelectors = ".__button";
+    const button = document.querySelector(buttonSelectors);
+    if (button === null) {
+      throw new Error(`${buttonSelectors} element does not exists.`);
+    }
+
+    const toastSelectors = ".__toast";
+    const toast = document.querySelector(toastSelectors);
+    if (toast === null) {
+      throw new Error(`${toastSelectors} element does not exists.`);
+    }
+
+    const contentSelectors = ".__content";
+    const content = document.querySelector(contentSelectors);
+    if (content === null) {
+      throw new Error(`${contentSelectors} element does not exists.`);
+    }
+
+    button.addEventListener("click", async (event) => {
+      import("bootstrap/js/dist/toast").then((module) => {
+        new module.default(toast).show();
+      });
+
+      const date = new Date();
+      const button = event.currentTarget as HTMLElement;
+
+      content.textContent = `${date.toLocaleDateString("en", {
+        weekday: "short",
+      })} ${date.toLocaleTimeString("en", {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+      })}`;
+
+      toast.addEventListener("shown.bs.toast", () => {
+        button.setAttribute("disabled", "");
+      });
+
+      toast.addEventListener("hidden.bs.toast", () => {
+        button.removeAttribute("disabled");
+      });
+    });
+  </script>
 </Layout>
-
-<script>
-  const buttonSelectors = ".__button";
-  const button = document.querySelector(buttonSelectors);
-  if (button === null) {
-    throw new Error(`${buttonSelectors} element does not exists.`);
-  }
-
-  const toastSelectors = ".__toast";
-  const toast = document.querySelector(toastSelectors);
-  if (toast === null) {
-    throw new Error(`${toastSelectors} element does not exists.`);
-  }
-
-  const contentSelectors = ".__content";
-  const content = document.querySelector(contentSelectors);
-  if (content === null) {
-    throw new Error(`${contentSelectors} element does not exists.`);
-  }
-
-  button.addEventListener("click", async (event) => {
-    import("bootstrap/js/dist/toast").then((module) => {
-      new module.default(toast).show();
-    });
-
-    const date = new Date();
-    const button = event.currentTarget as HTMLElement;
-
-    content.textContent = `${date.toLocaleDateString("en", {
-      weekday: "short",
-    })} ${date.toLocaleTimeString("en", {
-      hour12: false,
-      hour: "2-digit",
-      minute: "2-digit",
-    })}`;
-
-    toast.addEventListener("shown.bs.toast", () => {
-      button.setAttribute("disabled", "");
-    });
-
-    toast.addEventListener("hidden.bs.toast", () => {
-      button.removeAttribute("disabled");
-    });
-  });
-</script>

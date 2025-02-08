@@ -24,18 +24,17 @@ import { Layout } from "@/layouts/layout";
       data-bs-dismiss="alert"
       aria-label="close"></button>
   </div>
+  <script>
+    import "bootstrap/js/dist/alert";
+
+    const reloadSelectors = ".__reload";
+    const reload = document.querySelector(reloadSelectors);
+    if (reload === null) {
+      throw new Error(`${reloadSelectors} element does not exists.`);
+    }
+
+    reload.addEventListener("click", () => {
+      window.location.reload();
+    });
+  </script>
 </Layout>
-
-<script>
-  import "bootstrap/js/dist/alert";
-
-  const reloadSelectors = ".__reload";
-  const reload = document.querySelector(reloadSelectors);
-  if (reload === null) {
-    throw new Error(`${reloadSelectors} element does not exists.`);
-  }
-
-  reload.addEventListener("click", () => {
-    window.location.reload();
-  });
-</script>

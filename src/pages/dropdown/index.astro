@@ -36,55 +36,54 @@ import { Layout } from "@/layouts/layout";
       ))
     }
   </div>
-</Layout>
+  <script>
+    import "bootstrap/js/dist/dropdown";
+    import { generateLetters } from "./_utils";
 
-<script>
-  import "bootstrap/js/dist/dropdown";
-  import { generateLetters } from "./_utils";
+    const searchLettersSelectors = ".__search";
+    const searchLetters = document.querySelectorAll(searchLettersSelectors);
+    if (searchLetters.length === 0) {
+      throw new Error(`${searchLettersSelectors} element does not exists.`);
+    }
 
-  const searchLettersSelectors = ".__search";
-  const searchLetters = document.querySelectorAll(searchLettersSelectors);
-  if (searchLetters.length === 0) {
-    throw new Error(`${searchLettersSelectors} element does not exists.`);
-  }
+    const resetSelectors = ".__reset";
+    const reset = document.querySelector(resetSelectors);
+    if (reset === null) {
+      throw new Error(`${resetSelectors} element does not exists.`);
+    }
 
-  const resetSelectors = ".__reset";
-  const reset = document.querySelector(resetSelectors);
-  if (reset === null) {
-    throw new Error(`${resetSelectors} element does not exists.`);
-  }
+    const lettersSelectors = ".__letter";
+    const letters = document.querySelectorAll(lettersSelectors);
+    if (letters.length === 0) {
+      throw new Error(`${lettersSelectors} element does not exists.`);
+    }
 
-  const lettersSelectors = ".__letter";
-  const letters = document.querySelectorAll(lettersSelectors);
-  if (letters.length === 0) {
-    throw new Error(`${lettersSelectors} element does not exists.`);
-  }
+    const markedClassList = ["text-gray-700", "mark"];
 
-  const markedClassList = ["text-gray-700", "mark"];
-
-  const resetLetters = () => {
-    letters.forEach((letter, index) => {
-      letter.textContent = generateLetters(["A", "B", "C"])[index];
-      letter.classList.remove(...markedClassList);
-    });
-  };
-
-  resetLetters();
-
-  searchLetters.forEach((searchLetter) => {
-    searchLetter.addEventListener("click", (event) => {
-      letters.forEach((letter) => {
-        const searchLetter = event.currentTarget as HTMLElement;
+    const resetLetters = () => {
+      letters.forEach((letter, index) => {
+        letter.textContent = generateLetters(["A", "B", "C"])[index];
         letter.classList.remove(...markedClassList);
+      });
+    };
 
-        if (searchLetter.textContent === letter.textContent) {
-          letter.classList.add(...markedClassList);
-        }
+    resetLetters();
+
+    searchLetters.forEach((searchLetter) => {
+      searchLetter.addEventListener("click", (event) => {
+        letters.forEach((letter) => {
+          const searchLetter = event.currentTarget as HTMLElement;
+          letter.classList.remove(...markedClassList);
+
+          if (searchLetter.textContent === letter.textContent) {
+            letter.classList.add(...markedClassList);
+          }
+        });
       });
     });
-  });
 
-  reset.addEventListener("click", () => {
-    resetLetters();
-  });
-</script>
+    reset.addEventListener("click", () => {
+      resetLetters();
+    });
+  </script>
+</Layout>

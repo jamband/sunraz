@@ -28,34 +28,33 @@ import { Layout } from "@/layouts/layout";
       </div>
     </div>
   </div>
+  <script>
+    import "bootstrap/js/dist/collapse";
+
+    const toggleSelectors = ".__toggle";
+    const toggle = document.querySelector(toggleSelectors);
+    if (toggle === null) {
+      throw new Error(`${toggleSelectors} element does not exists.`);
+    }
+
+    const alertSelectors = ".__alert";
+    const alert = document.querySelector(alertSelectors);
+    if (alert === null) {
+      throw new Error(`${alertSelectors} element does not exists.`);
+    }
+
+    toggle.addEventListener("click", (event) => {
+      const toggle = event.currentTarget as HTMLElement;
+      toggle.setAttribute("disabled", "");
+      toggle.textContent = toggle.textContent === "Show" ? "Hide" : "Show";
+
+      alert.addEventListener("shown.bs.collapse", () => {
+        toggle.removeAttribute("disabled");
+      });
+
+      alert.addEventListener("hidden.bs.collapse", () => {
+        toggle.removeAttribute("disabled");
+      });
+    });
+  </script>
 </Layout>
-
-<script>
-  import "bootstrap/js/dist/collapse";
-
-  const toggleSelectors = ".__toggle";
-  const toggle = document.querySelector(toggleSelectors);
-  if (toggle === null) {
-    throw new Error(`${toggleSelectors} element does not exists.`);
-  }
-
-  const alertSelectors = ".__alert";
-  const alert = document.querySelector(alertSelectors);
-  if (alert === null) {
-    throw new Error(`${alertSelectors} element does not exists.`);
-  }
-
-  toggle.addEventListener("click", (event) => {
-    const toggle = event.currentTarget as HTMLElement;
-    toggle.setAttribute("disabled", "");
-    toggle.textContent = toggle.textContent === "Show" ? "Hide" : "Show";
-
-    alert.addEventListener("shown.bs.collapse", () => {
-      toggle.removeAttribute("disabled");
-    });
-
-    alert.addEventListener("hidden.bs.collapse", () => {
-      toggle.removeAttribute("disabled");
-    });
-  });
-</script>
