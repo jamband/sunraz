@@ -15,7 +15,7 @@
     "@fullhuman/postcss-purgecss": "7.0.2",
     "@popperjs/core": "2.11.8",
     "@types/bootstrap": "5.2.10",
-    "astro": "5.5.4",
+    "astro": "5.5.5",
     "bootstrap": "5.3.3",
     "postcss": "8.5.3",
     "prettier": "3.5.3",
