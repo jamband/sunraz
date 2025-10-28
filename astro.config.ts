@@ -12,7 +12,6 @@ export default defineConfig({
             "global-builtin",
             "import",
             "legacy-js-api",
-            "mixed-decls",
           ],
         },
       },
