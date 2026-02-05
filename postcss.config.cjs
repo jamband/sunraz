@@ -1,4 +1,4 @@
-const { purgeCSSPlugin } = require("@fullhuman/postcss-purgecss");
+const purgeCSSPlugin = require("@fullhuman/postcss-purgecss");
 
 module.exports = (context) => ({
   plugins: [
