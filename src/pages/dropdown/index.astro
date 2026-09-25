@@ -24,18 +24,24 @@ import { Layout } from "@/layouts/layout";
       />
     </button>
     <div class="dropdown-menu" aria-labelledby="search">
-      <button type="button" class="dropdown-item __search">A</button>
-      <button type="button" class="dropdown-item __search">B</button>
-      <button type="button" class="dropdown-item __search">C</button>
+      <button type="button" class="dropdown-item __search">
+        A
+      </button>
+      <button type="button" class="dropdown-item __search">
+        B
+      </button>
+      <button type="button" class="dropdown-item __search">
+        C
+      </button>
     </div>
-    <button type="button" class="btn btn-primary __reset">Reset</button>
+    <button type="button" class="btn btn-primary __reset">
+      Reset
+    </button>
   </div>
   <div class="mt-5 d-flex justify-content-center gap-1">
-    {
-      [...Array(10)].map(() => (
-        <span class="p-2 fw-bold font-monospace __letter" />
-      ))
-    }
+    {[...Array(10)].map(() => (
+      <span class="p-2 fw-bold font-monospace __letter" />
+    ))}
   </div>
   <script>
     import "bootstrap/js/dist/dropdown";

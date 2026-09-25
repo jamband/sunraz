@@ -10,11 +10,9 @@ import { Block } from "./_components/block";
 <Layout title="Pagination">
   <h1>Pagination</h1>
   <div class="mt-5 text-center" aria-label="pagination information">
-    {
-      [...Array(10)].map(() => (
-        <Block size={20} color="#35333c" class="me-1 __block" />
-      ))
-    }
+    {[...Array(10)].map(() => (
+      <Block size={20} color="#35333c" class="me-1 __block" />
+    ))}
   </div>
   <nav class="mt-5" aria-label="page navigation">
     <ul class="pagination text-center">

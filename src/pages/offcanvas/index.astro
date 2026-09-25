@@ -66,31 +66,26 @@ const moreLinks: Links = [
         class="me-1 btn-close"
         data-bs-dismiss="offcanvas"
         aria-label="close"
-      >
-      </button>
+      ></button>
     </div>
     <div class="px-0 offcanvas-body">
-      {
-        links.map((link) => (
-          <div data-bs-dismiss="offcanvas">
-            <a href={link.href} class="d-flex align-items-center px-4 nav-link">
-              <div class="flex-grow-1">{link.text}</div>
-              <IconChevronRight style={{ height: "1rem", width: "1rem" }} />
-            </a>
-          </div>
-        ))
-      }
+      {links.map((link) => (
+        <div data-bs-dismiss="offcanvas">
+          <a href={link.href} class="d-flex align-items-center px-4 nav-link">
+            <div class="flex-grow-1">{link.text}</div>
+            <IconChevronRight style={{ height: "1rem", width: "1rem" }} />
+          </a>
+        </div>
+      ))}
       <hr />
-      {
-        moreLinks.map((link) => (
-          <div data-bs-dismiss="offcanvas">
-            <a href={link.href} class="d-flex align-items-center px-4 nav-link">
-              <div class="flex-grow-1">{link.text}</div>
-              <IconChevronRight style={{ height: "1rem", width: "1rem" }} />
-            </a>
-          </div>
-        ))
-      }
+      {moreLinks.map((link) => (
+        <div data-bs-dismiss="offcanvas">
+          <a href={link.href} class="d-flex align-items-center px-4 nav-link">
+            <div class="flex-grow-1">{link.text}</div>
+            <IconChevronRight style={{ height: "1rem", width: "1rem" }} />
+          </a>
+        </div>
+      ))}
     </div>
   </div>
   <script>

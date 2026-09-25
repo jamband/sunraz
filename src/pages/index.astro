@@ -20,21 +20,19 @@ const _links = [
 
 <Layout>
   <ul class="d-flex flex-column gap-3 h2 list-unstyled">
-    {
-      _links.map((link) => (
-        <li>
-          <a href={link.href} class="text-decoration-none">
-            {link.text}{" "}
-            <IconChevronRight
-              style={{
-                height: "1rem",
-                width: "1rem",
-                verticalAlign: "0em",
-              }}
-            />
-          </a>
-        </li>
-      ))
-    }
+    {_links.map((link) => (
+      <li>
+        <a href={link.href} class="text-decoration-none">
+          {link.text}{" "}
+          <IconChevronRight
+            style={{
+              height: "1rem",
+              width: "1rem",
+              verticalAlign: "0em",
+            }}
+          />
+        </a>
+      </li>
+    ))}
   </ul>
 </Layout>

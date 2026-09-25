@@ -21,19 +21,17 @@ const _isCurrent = (path: string) => {
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    {
-      _items().map((item) => (
-        <li
-          class:list={["breadcrumb-item", _isCurrent(item.path) && "active"]}
-          aria-current={_isCurrent(item.path) && "page"}
-        >
-          {_isCurrent(item.path) ? (
-            <>{item.text}</>
-          ) : (
-            <a href={item.path}>{item.text}</a>
-          )}
-        </li>
-      ))
-    }
+    {_items().map((item) => (
+      <li
+        class:list={["breadcrumb-item", _isCurrent(item.path) && "active"]}
+        aria-current={_isCurrent(item.path) && "page"}
+      >
+        {_isCurrent(item.path) ? (
+          <>{item.text}</>
+        ) : (
+          <a href={item.path}>{item.text}</a>
+        )}
+      </li>
+    ))}
   </ol>
 </nav>
