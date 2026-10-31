@@ -11,15 +11,15 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.10",
+    "@astrojs/check": "0.9.12",
     "@fullhuman/postcss-purgecss": "8.0.0",
     "@popperjs/core": "2.11.8",
     "@types/bootstrap": "5.2.11",
-    "astro": "7.3.8",
+    "astro": "7.4.2",
     "bootstrap": "5.3.8",
-    "postcss": "8.5.29",
-    "prettier": "3.9.9",
-    "prettier-plugin-astro": "1.1.1",
-    "sass": "1.105.1"
+    "postcss": "8.5.32",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.2",
+    "sass": "1.106.1"
   }
 }
